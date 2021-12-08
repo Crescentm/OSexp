@@ -147,5 +147,4 @@ struct file_desc {
 				       TASK_FS,				\
 				       fsbuf);
 
-	
 #endif /* _ORANGES_FS_H_ */

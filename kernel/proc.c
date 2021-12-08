@@ -68,18 +68,18 @@ PUBLIC void schedule() {
     if (proc_timeslice == queue_1.timeslice) {
         q_pop(&queue_1);
         q_push(&queue_2, p);
-        disp_str(p->name);
-        disp_str(" queue_1->queue_2\n");
+        // disp_str(p->name);
+       // disp_str(" queue_1->queue_2\n");
     } else if (proc_timeslice == queue_2.timeslice) {
         q_pop(&queue_2);
         q_push(&queue_3, p);
-        disp_str(p->name);
-        disp_str(" queue_2->queue_3\n");
+        //disp_str(p->name);
+       // disp_str(" queue_2->queue_3\n");
     } else {
         q_pop(&queue_3);
         q_push(&queue_3, p);
-        disp_str(p->name);
-        disp_str(" queue_3->queue_3\n");
+        //disp_str(p->name);
+        //disp_str(" queue_3->queue_3\n");
     }
 
     while (queue_1.size > 0) {

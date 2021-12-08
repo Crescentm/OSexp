@@ -38,7 +38,6 @@ struct proc {
     /* u32 pid;                   /\* process id passed in from MM *\/ */
     char name[16]; /* name of the process */
 
-    int queuenum; /* the number of queue */
 
     int p_flags; /**
 				    * process flags.

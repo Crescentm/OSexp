@@ -16,6 +16,7 @@
 #include "console.h"
 #include "global.h"
 #include "proto.h"
+#include "check.h"
 #include <stdio.h>
 
 /*****************************************************************************
@@ -124,7 +125,7 @@ PUBLIC int kernel_main() {
 
     p_proc_ready = proc_table;
     proc_timeslice = 1;
-    
+
     init_clock();
     init_keyboard();
 
@@ -192,8 +193,6 @@ void untar(const char *filename) {
                                        * must be multiple of 512
                                        */
         if (buf[0] == 0) {
-            if (i == 0)
-                printf("    need not unpack the file.\n");
             break;
         }
         i++;
@@ -205,6 +204,13 @@ void untar(const char *filename) {
         int f_len = 0;
         while (*p)
             f_len = (f_len * 8) + (*p++ - '0'); /* octal */
+        printf("    %s\n", phdr->name);
+        if (strcmp(phdr->name, "kernel.bin") != 0) {
+            strcpy(check_table[check_count].filename, phdr->name);
+            check_table[check_count].byteCount = f_len;
+            check_table[check_count].checkSum = check(check_table[check_count].filename, check_count, f_len);
+            check_count++;
+        }
 
         int bytes_left = f_len;
         int fdout = open(phdr->name, O_CREAT | O_RDWR | O_TRUNC);
@@ -214,7 +220,6 @@ void untar(const char *filename) {
             close(fd);
             return;
         }
-        printf("    %s\n", phdr->name);
         while (bytes_left) {
             int iobytes = min(chunk, bytes_left);
             read(fd, buf,
@@ -226,12 +231,12 @@ void untar(const char *filename) {
         close(fdout);
     }
 
-    if (i) {
-        lseek(fd, 0, SEEK_SET);
-        buf[0] = 0;
-        bytes = write(fd, buf, 1);
-        assert(bytes == 1);
-    }
+    // if (i) {
+    //     lseek(fd, 0, SEEK_SET);
+    //     buf[0] = 0;
+    //     bytes = write(fd, buf, 1);
+    //     assert(bytes == 1);
+    // }
 
     close(fd);
 
@@ -294,7 +299,15 @@ void shabby_shell(const char *tty_name) {
                 int s;
                 wait(&s);
             } else { /* child */
-                execv(argv[0], argv);
+                int position = find_position(check_table, argv[0]);
+                int real_checkSum = check_table[position].checkSum;
+                int now_checkSum = check(argv[0], position, check_table[position].byteCount);
+
+                if (real_checkSum == now_checkSum) {
+                    execv(argv[0], argv);
+                } else {
+                    printf("File has been changed!\n");
+                }
             }
         }
     }
@@ -351,21 +364,24 @@ void Init() {
                                TestA
  *======================================================================*/
 void TestA() {
-    for (;;);
+    for (;;)
+        ;
 }
 
 /*======================================================================*
                                TestB
  *======================================================================*/
 void TestB() {
-    for (;;);
+    for (;;)
+        ;
 }
 
 /*======================================================================*
                                TestB
  *======================================================================*/
 void TestC() {
-    for (;;);
+    for (;;)
+        ;
 }
 
 /*****************************************************************************

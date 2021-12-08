@@ -43,7 +43,7 @@ LOBJS		=  lib/syscall.o\
 			lib/open.o lib/read.o lib/write.o lib/close.o lib/unlink.o\
 			lib/lseek.o\
 			lib/getpid.o lib/stat.o\
-			lib/fork.o lib/exit.o lib/wait.o lib/exec.o
+			lib/fork.o lib/exit.o lib/wait.o lib/exec.o lib/check.o
 DASMOUTPUT	= kernel.bin.asm
 
 # All Phony Targets
@@ -135,6 +135,9 @@ lib/printf.o: lib/printf.c
 	$(CC) $(CFLAGS) -o $@ $<
 
 lib/vsprintf.o: lib/vsprintf.c
+	$(CC) $(CFLAGS) -o $@ $<
+
+lib/check.o: lib/check.c
 	$(CC) $(CFLAGS) -o $@ $<
 
 kernel/systask.o: kernel/systask.c

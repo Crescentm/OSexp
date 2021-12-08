@@ -7,6 +7,7 @@
  *****************************************************************************
  *****************************************************************************/
 
+#include <stdio.h>
 #define GLOBAL_VARIABLES_HERE
 
 #include "type.h"
@@ -19,6 +20,8 @@
 #include "proc.h"
 #include "global.h"
 #include "proto.h"
+#include "config.h"
+#include "check.h"
 
 PUBLIC struct proc proc_table[NR_TASKS + NR_PROCS];
 
@@ -93,8 +96,10 @@ PUBLIC const int LOGBUF_SIZE = 0x100000;
 PUBLIC char *logdiskbuf = (char *)0x900000;
 PUBLIC const int LOGDISKBUF_SIZE = 0x100000;
 
-struct Queue queue_1 = {{0}, 0, 0, 0, FIRST_ROUND_TICKS, NR_PROCS + NR_TASKS};
-struct Queue queue_2 = {{0}, 0, 0, 0, SECOND_ROUND_TICKS, NR_PROCS + NR_TASKS};
-struct Queue queue_3 = {{0}, 0, 0, 0, THIRD_ROUND_TICKS, NR_PROCS + NR_TASKS};
-int proc_timeslice = -1; // 记录进程队列位置
-int proc_runtime = 0;    // 当前进程的运行时间
+PUBLIC struct Queue queue_1 = {{0}, 0, 0, 0, FIRST_ROUND_TICKS, NR_PROCS + NR_TASKS};
+PUBLIC struct Queue queue_2 = {{0}, 0, 0, 0, SECOND_ROUND_TICKS, NR_PROCS + NR_TASKS};
+PUBLIC struct Queue queue_3 = {{0}, 0, 0, 0, THIRD_ROUND_TICKS, NR_PROCS + NR_TASKS};
+PUBLIC int proc_timeslice = -1; // 记录进程队列位置
+PUBLIC int proc_runtime = 0;    // 当前进程的运行时间
+PUBLIC struct check check_table[NR_CHECKFILES];
+PUBLIC int check_count = 0;
