@@ -1,0 +1,192 @@
+[
+    {
+        "command": "cc -c -I include/ -I include/sys/ -fno-builtin -fno-stack-protector -fpack-struct -Wall -o kernel/start.o C:\\Users\\guyue\\Workspace\\OsExp\\Os\\kernel\\start.c",
+        "directory": "C:\\Users\\guyue\\Workspace\\OsExp\\Os",
+        "file": "C:\\Users\\guyue\\Workspace\\OsExp\\Os\\kernel\\start.c"
+    },
+    {
+        "command": "cc -c -I include/ -I include/sys/ -fno-builtin -fno-stack-protector -fpack-struct -Wall -o kernel/main.o C:\\Users\\guyue\\Workspace\\OsExp\\Os\\kernel\\main.c",
+        "directory": "C:\\Users\\guyue\\Workspace\\OsExp\\Os",
+        "file": "C:\\Users\\guyue\\Workspace\\OsExp\\Os\\kernel\\main.c"
+    },
+    {
+        "command": "cc -c -I include/ -I include/sys/ -fno-builtin -fno-stack-protector -fpack-struct -Wall -o kernel/clock.o C:\\Users\\guyue\\Workspace\\OsExp\\Os\\kernel\\clock.c",
+        "directory": "C:\\Users\\guyue\\Workspace\\OsExp\\Os",
+        "file": "C:\\Users\\guyue\\Workspace\\OsExp\\Os\\kernel\\clock.c"
+    },
+    {
+        "command": "cc -c -I include/ -I include/sys/ -fno-builtin -fno-stack-protector -fpack-struct -Wall -o kernel/keyboard.o C:\\Users\\guyue\\Workspace\\OsExp\\Os\\kernel\\keyboard.c",
+        "directory": "C:\\Users\\guyue\\Workspace\\OsExp\\Os",
+        "file": "C:\\Users\\guyue\\Workspace\\OsExp\\Os\\kernel\\keyboard.c"
+    },
+    {
+        "command": "cc -c -I include/ -I include/sys/ -fno-builtin -fno-stack-protector -fpack-struct -Wall -o kernel/tty.o C:\\Users\\guyue\\Workspace\\OsExp\\Os\\kernel\\tty.c",
+        "directory": "C:\\Users\\guyue\\Workspace\\OsExp\\Os",
+        "file": "C:\\Users\\guyue\\Workspace\\OsExp\\Os\\kernel\\tty.c"
+    },
+    {
+        "command": "cc -c -I include/ -I include/sys/ -fno-builtin -fno-stack-protector -fpack-struct -Wall -o kernel/console.o C:\\Users\\guyue\\Workspace\\OsExp\\Os\\kernel\\console.c",
+        "directory": "C:\\Users\\guyue\\Workspace\\OsExp\\Os",
+        "file": "C:\\Users\\guyue\\Workspace\\OsExp\\Os\\kernel\\console.c"
+    },
+    {
+        "command": "cc -c -I include/ -I include/sys/ -fno-builtin -fno-stack-protector -fpack-struct -Wall -o kernel/i8259.o C:\\Users\\guyue\\Workspace\\OsExp\\Os\\kernel\\i8259.c",
+        "directory": "C:\\Users\\guyue\\Workspace\\OsExp\\Os",
+        "file": "C:\\Users\\guyue\\Workspace\\OsExp\\Os\\kernel\\i8259.c"
+    },
+    {
+        "command": "cc -c -I include/ -I include/sys/ -fno-builtin -fno-stack-protector -fpack-struct -Wall -o kernel/global.o C:\\Users\\guyue\\Workspace\\OsExp\\Os\\kernel\\global.c",
+        "directory": "C:\\Users\\guyue\\Workspace\\OsExp\\Os",
+        "file": "C:\\Users\\guyue\\Workspace\\OsExp\\Os\\kernel\\global.c"
+    },
+    {
+        "command": "cc -c -I include/ -I include/sys/ -fno-builtin -fno-stack-protector -fpack-struct -Wall -o kernel/protect.o C:\\Users\\guyue\\Workspace\\OsExp\\Os\\kernel\\protect.c",
+        "directory": "C:\\Users\\guyue\\Workspace\\OsExp\\Os",
+        "file": "C:\\Users\\guyue\\Workspace\\OsExp\\Os\\kernel\\protect.c"
+    },
+    {
+        "command": "cc -c -I include/ -I include/sys/ -fno-builtin -fno-stack-protector -fpack-struct -Wall -o kernel/proc.o C:\\Users\\guyue\\Workspace\\OsExp\\Os\\kernel\\proc.c",
+        "directory": "C:\\Users\\guyue\\Workspace\\OsExp\\Os",
+        "file": "C:\\Users\\guyue\\Workspace\\OsExp\\Os\\kernel\\proc.c"
+    },
+    {
+        "command": "cc -c -I include/ -I include/sys/ -fno-builtin -fno-stack-protector -fpack-struct -Wall -o kernel/systask.o C:\\Users\\guyue\\Workspace\\OsExp\\Os\\kernel\\systask.c",
+        "directory": "C:\\Users\\guyue\\Workspace\\OsExp\\Os",
+        "file": "C:\\Users\\guyue\\Workspace\\OsExp\\Os\\kernel\\systask.c"
+    },
+    {
+        "command": "cc -c -I include/ -I include/sys/ -fno-builtin -fno-stack-protector -fpack-struct -Wall -o kernel/hd.o C:\\Users\\guyue\\Workspace\\OsExp\\Os\\kernel\\hd.c",
+        "directory": "C:\\Users\\guyue\\Workspace\\OsExp\\Os",
+        "file": "C:\\Users\\guyue\\Workspace\\OsExp\\Os\\kernel\\hd.c"
+    },
+    {
+        "command": "cc -c -I include/ -I include/sys/ -fno-builtin -fno-stack-protector -fpack-struct -Wall -o kernel/klib.o C:\\Users\\guyue\\Workspace\\OsExp\\Os\\kernel\\klib.c",
+        "directory": "C:\\Users\\guyue\\Workspace\\OsExp\\Os",
+        "file": "C:\\Users\\guyue\\Workspace\\OsExp\\Os\\kernel\\klib.c"
+    },
+    {
+        "command": "cc -c -I include/ -I include/sys/ -fno-builtin -fno-stack-protector -fpack-struct -Wall -o lib/syslog.o C:\\Users\\guyue\\Workspace\\OsExp\\Os\\lib\\syslog.c",
+        "directory": "C:\\Users\\guyue\\Workspace\\OsExp\\Os",
+        "file": "C:\\Users\\guyue\\Workspace\\OsExp\\Os\\lib\\syslog.c"
+    },
+    {
+        "command": "cc -c -I include/ -I include/sys/ -fno-builtin -fno-stack-protector -fpack-struct -Wall -o mm/main.o C:\\Users\\guyue\\Workspace\\OsExp\\Os\\mm\\main.c",
+        "directory": "C:\\Users\\guyue\\Workspace\\OsExp\\Os",
+        "file": "C:\\Users\\guyue\\Workspace\\OsExp\\Os\\mm\\main.c"
+    },
+    {
+        "command": "cc -c -I include/ -I include/sys/ -fno-builtin -fno-stack-protector -fpack-struct -Wall -o mm/forkexit.o C:\\Users\\guyue\\Workspace\\OsExp\\Os\\mm\\forkexit.c",
+        "directory": "C:\\Users\\guyue\\Workspace\\OsExp\\Os",
+        "file": "C:\\Users\\guyue\\Workspace\\OsExp\\Os\\mm\\forkexit.c"
+    },
+    {
+        "command": "cc -c -I include/ -I include/sys/ -fno-builtin -fno-stack-protector -fpack-struct -Wall -o mm/exec.o C:\\Users\\guyue\\Workspace\\OsExp\\Os\\mm\\exec.c",
+        "directory": "C:\\Users\\guyue\\Workspace\\OsExp\\Os",
+        "file": "C:\\Users\\guyue\\Workspace\\OsExp\\Os\\mm\\exec.c"
+    },
+    {
+        "command": "cc -c -I include/ -I include/sys/ -fno-builtin -fno-stack-protector -fpack-struct -Wall -o fs/main.o C:\\Users\\guyue\\Workspace\\OsExp\\Os\\fs\\main.c",
+        "directory": "C:\\Users\\guyue\\Workspace\\OsExp\\Os",
+        "file": "C:\\Users\\guyue\\Workspace\\OsExp\\Os\\fs\\main.c"
+    },
+    {
+        "command": "cc -c -I include/ -I include/sys/ -fno-builtin -fno-stack-protector -fpack-struct -Wall -o fs/open.o C:\\Users\\guyue\\Workspace\\OsExp\\Os\\fs\\open.c",
+        "directory": "C:\\Users\\guyue\\Workspace\\OsExp\\Os",
+        "file": "C:\\Users\\guyue\\Workspace\\OsExp\\Os\\fs\\open.c"
+    },
+    {
+        "command": "cc -c -I include/ -I include/sys/ -fno-builtin -fno-stack-protector -fpack-struct -Wall -o fs/misc.o C:\\Users\\guyue\\Workspace\\OsExp\\Os\\fs\\misc.c",
+        "directory": "C:\\Users\\guyue\\Workspace\\OsExp\\Os",
+        "file": "C:\\Users\\guyue\\Workspace\\OsExp\\Os\\fs\\misc.c"
+    },
+    {
+        "command": "cc -c -I include/ -I include/sys/ -fno-builtin -fno-stack-protector -fpack-struct -Wall -o fs/read_write.o C:\\Users\\guyue\\Workspace\\OsExp\\Os\\fs\\read_write.c",
+        "directory": "C:\\Users\\guyue\\Workspace\\OsExp\\Os",
+        "file": "C:\\Users\\guyue\\Workspace\\OsExp\\Os\\fs\\read_write.c"
+    },
+    {
+        "command": "cc -c -I include/ -I include/sys/ -fno-builtin -fno-stack-protector -fpack-struct -Wall -o fs/link.o C:\\Users\\guyue\\Workspace\\OsExp\\Os\\fs\\link.c",
+        "directory": "C:\\Users\\guyue\\Workspace\\OsExp\\Os",
+        "file": "C:\\Users\\guyue\\Workspace\\OsExp\\Os\\fs\\link.c"
+    },
+    {
+        "command": "cc -c -I include/ -I include/sys/ -fno-builtin -fno-stack-protector -fpack-struct -Wall -o fs/disklog.o C:\\Users\\guyue\\Workspace\\OsExp\\Os\\fs\\disklog.c",
+        "directory": "C:\\Users\\guyue\\Workspace\\OsExp\\Os",
+        "file": "C:\\Users\\guyue\\Workspace\\OsExp\\Os\\fs\\disklog.c"
+    },
+    {
+        "command": "cc -c -I include/ -I include/sys/ -fno-builtin -fno-stack-protector -fpack-struct -Wall -o lib/printf.o C:\\Users\\guyue\\Workspace\\OsExp\\Os\\lib\\printf.c",
+        "directory": "C:\\Users\\guyue\\Workspace\\OsExp\\Os",
+        "file": "C:\\Users\\guyue\\Workspace\\OsExp\\Os\\lib\\printf.c"
+    },
+    {
+        "command": "cc -c -I include/ -I include/sys/ -fno-builtin -fno-stack-protector -fpack-struct -Wall -o lib/vsprintf.o C:\\Users\\guyue\\Workspace\\OsExp\\Os\\lib\\vsprintf.c",
+        "directory": "C:\\Users\\guyue\\Workspace\\OsExp\\Os",
+        "file": "C:\\Users\\guyue\\Workspace\\OsExp\\Os\\lib\\vsprintf.c"
+    },
+    {
+        "command": "cc -c -I include/ -I include/sys/ -fno-builtin -fno-stack-protector -fpack-struct -Wall -o lib/misc.o C:\\Users\\guyue\\Workspace\\OsExp\\Os\\lib\\misc.c",
+        "directory": "C:\\Users\\guyue\\Workspace\\OsExp\\Os",
+        "file": "C:\\Users\\guyue\\Workspace\\OsExp\\Os\\lib\\misc.c"
+    },
+    {
+        "command": "cc -c -I include/ -I include/sys/ -fno-builtin -fno-stack-protector -fpack-struct -Wall -o lib/open.o C:\\Users\\guyue\\Workspace\\OsExp\\Os\\lib\\open.c",
+        "directory": "C:\\Users\\guyue\\Workspace\\OsExp\\Os",
+        "file": "C:\\Users\\guyue\\Workspace\\OsExp\\Os\\lib\\open.c"
+    },
+    {
+        "command": "cc -c -I include/ -I include/sys/ -fno-builtin -fno-stack-protector -fpack-struct -Wall -o lib/read.o C:\\Users\\guyue\\Workspace\\OsExp\\Os\\lib\\read.c",
+        "directory": "C:\\Users\\guyue\\Workspace\\OsExp\\Os",
+        "file": "C:\\Users\\guyue\\Workspace\\OsExp\\Os\\lib\\read.c"
+    },
+    {
+        "command": "cc -c -I include/ -I include/sys/ -fno-builtin -fno-stack-protector -fpack-struct -Wall -o lib/write.o C:\\Users\\guyue\\Workspace\\OsExp\\Os\\lib\\write.c",
+        "directory": "C:\\Users\\guyue\\Workspace\\OsExp\\Os",
+        "file": "C:\\Users\\guyue\\Workspace\\OsExp\\Os\\lib\\write.c"
+    },
+    {
+        "command": "cc -c -I include/ -I include/sys/ -fno-builtin -fno-stack-protector -fpack-struct -Wall -o lib/close.o C:\\Users\\guyue\\Workspace\\OsExp\\Os\\lib\\close.c",
+        "directory": "C:\\Users\\guyue\\Workspace\\OsExp\\Os",
+        "file": "C:\\Users\\guyue\\Workspace\\OsExp\\Os\\lib\\close.c"
+    },
+    {
+        "command": "cc -c -I include/ -I include/sys/ -fno-builtin -fno-stack-protector -fpack-struct -Wall -o lib/unlink.o C:\\Users\\guyue\\Workspace\\OsExp\\Os\\lib\\unlink.c",
+        "directory": "C:\\Users\\guyue\\Workspace\\OsExp\\Os",
+        "file": "C:\\Users\\guyue\\Workspace\\OsExp\\Os\\lib\\unlink.c"
+    },
+    {
+        "command": "cc -c -I include/ -I include/sys/ -fno-builtin -fno-stack-protector -fpack-struct -Wall -o lib/lseek.o C:\\Users\\guyue\\Workspace\\OsExp\\Os\\lib\\lseek.c",
+        "directory": "C:\\Users\\guyue\\Workspace\\OsExp\\Os",
+        "file": "C:\\Users\\guyue\\Workspace\\OsExp\\Os\\lib\\lseek.c"
+    },
+    {
+        "command": "cc -c -I include/ -I include/sys/ -fno-builtin -fno-stack-protector -fpack-struct -Wall -o lib/getpid.o C:\\Users\\guyue\\Workspace\\OsExp\\Os\\lib\\getpid.c",
+        "directory": "C:\\Users\\guyue\\Workspace\\OsExp\\Os",
+        "file": "C:\\Users\\guyue\\Workspace\\OsExp\\Os\\lib\\getpid.c"
+    },
+    {
+        "command": "cc -c -I include/ -I include/sys/ -fno-builtin -fno-stack-protector -fpack-struct -Wall -o lib/stat.o C:\\Users\\guyue\\Workspace\\OsExp\\Os\\lib\\stat.c",
+        "directory": "C:\\Users\\guyue\\Workspace\\OsExp\\Os",
+        "file": "C:\\Users\\guyue\\Workspace\\OsExp\\Os\\lib\\stat.c"
+    },
+    {
+        "command": "cc -c -I include/ -I include/sys/ -fno-builtin -fno-stack-protector -fpack-struct -Wall -o lib/fork.o C:\\Users\\guyue\\Workspace\\OsExp\\Os\\lib\\fork.c",
+        "directory": "C:\\Users\\guyue\\Workspace\\OsExp\\Os",
+        "file": "C:\\Users\\guyue\\Workspace\\OsExp\\Os\\lib\\fork.c"
+    },
+    {
+        "command": "cc -c -I include/ -I include/sys/ -fno-builtin -fno-stack-protector -fpack-struct -Wall -o lib/exit.o C:\\Users\\guyue\\Workspace\\OsExp\\Os\\lib\\exit.c",
+        "directory": "C:\\Users\\guyue\\Workspace\\OsExp\\Os",
+        "file": "C:\\Users\\guyue\\Workspace\\OsExp\\Os\\lib\\exit.c"
+    },
+    {
+        "command": "cc -c -I include/ -I include/sys/ -fno-builtin -fno-stack-protector -fpack-struct -Wall -o lib/wait.o C:\\Users\\guyue\\Workspace\\OsExp\\Os\\lib\\wait.c",
+        "directory": "C:\\Users\\guyue\\Workspace\\OsExp\\Os",
+        "file": "C:\\Users\\guyue\\Workspace\\OsExp\\Os\\lib\\wait.c"
+    },
+    {
+        "command": "cc -c -I include/ -I include/sys/ -fno-builtin -fno-stack-protector -fpack-struct -Wall -o lib/exec.o C:\\Users\\guyue\\Workspace\\OsExp\\Os\\lib\\exec.c",
+        "directory": "C:\\Users\\guyue\\Workspace\\OsExp\\Os",
+        "file": "C:\\Users\\guyue\\Workspace\\OsExp\\Os\\lib\\exec.c"
+    }
+]
