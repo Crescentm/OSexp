@@ -58,10 +58,26 @@ PUBLIC void task_sys()
 			send_recv(SEND, src, &msg);
 			break;
 		case GET_PROC:
+				msg.type = SYSCALL_RET; 
+				phys_copy(va2la(src, msg.BUF), va2la(TASK_SYS, &proc_table[msg.PID]), sizeof(struct proc));
+            			send_recv(SEND,src,&msg);
+				break;
+		case GET_QUEUE:
 			msg.type = SYSCALL_RET;
-			//
+			MLFQ * qq;
+			if(msg.PID == 1) {
+				qq = &MLFQ_queue_1;
+			} else if(msg.PID == 2) {
+				qq = &MLFQ_queue_2;
+			} else {
+				qq = &MLFQ_queue_3;
+			}
+			phys_copy(va2la(src, msg.BUF),
+				  va2la(TASK_SYS, qq),
+				  sizeof(MLFQ));
 			send_recv(SEND, src, &msg);
 			break;
+            break;
 		default:
 			panic("unknown msg type");
 			break;
