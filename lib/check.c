@@ -31,14 +31,12 @@ PUBLIC int check(char *filename, int pos, int byteCount) {
     char buf[1];
     unsigned int checksum=0;
 
-    for (int i = 0; i < 50; i++) {
-        //lseek(hFile, i, SEEK_SET);
+    for (int i = 0; i < 100; i++) {
         read(hFile, buf, 1);
 
         checksum = checksum ^ (unsigned int)buf[0];
     }
     printf("checksum = %d\n",checksum);
-    lseek(hFile, 0, SEEK_SET);
     close(hFile);
     return checksum;
 }

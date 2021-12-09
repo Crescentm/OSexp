@@ -204,22 +204,16 @@ void untar(const char *filename) {
         int f_len = 0;
         while (*p)
             f_len = (f_len * 8) + (*p++ - '0'); /* octal */
-        printf("    %s\n", phdr->name);
-        if (strcmp(phdr->name, "kernel.bin") != 0) {
-            strcpy(check_table[check_count].filename, phdr->name);
-            check_table[check_count].byteCount = f_len;
-            check_table[check_count].checkSum = check(check_table[check_count].filename, check_count, f_len);
-            check_count++;
-        }
 
         int bytes_left = f_len;
         int fdout = open(phdr->name, O_CREAT | O_RDWR | O_TRUNC);
         if (fdout == -1) {
             printf("    failed to extract file: %s\n", phdr->name);
-            printf(" aborted]\n");
+            printf("[aborted]\n");
             close(fd);
             return;
         }
+        printf("extract  %s\n", phdr->name);
         while (bytes_left) {
             int iobytes = min(chunk, bytes_left);
             read(fd, buf,
@@ -230,6 +224,7 @@ void untar(const char *filename) {
         }
         close(fdout);
     }
+    printf(" done, %d files extracted]\n", i);
 
     // if (i) {
     //     lseek(fd, 0, SEEK_SET);
@@ -238,9 +233,42 @@ void untar(const char *filename) {
     //     assert(bytes == 1);
     // }
 
-    close(fd);
+    // 校验过程
+    printf("start generate checksum\n");
+    lseek(fd, 0, SEEK_SET);
+    while (1) {
+        bytes = read(fd, buf, SECTOR_SIZE);
+        assert(bytes == SECTOR_SIZE); /* size of a TAR file
+                                       * must be multiple of 512
+                                       */
+        if (buf[0] == 0) {
+            break;
+        }
 
-    printf(" done, %d files extracted]\n", i);
+        struct posix_tar_header *phdr = (struct posix_tar_header *)buf;
+
+        char *p = phdr->size;
+        int f_len = 0;
+        while (*p)
+            f_len = (f_len * 8) + (*p++ - '0'); /* octal */
+        if (strcmp(phdr->name, "kernel.bin") != 0) {
+            strcpy(check_table[check_count].filename, phdr->name);
+            check_table[check_count].byteCount = f_len;
+            check_table[check_count].checkSum = check(check_table[check_count].filename, check_count, f_len);
+            check_count++;
+        }
+        int bytes_left = f_len;
+
+        while (bytes_left) {
+            int iobytes = min(chunk, bytes_left);
+            read(fd, buf,
+                 ((iobytes - 1) / SECTOR_SIZE + 1) * SECTOR_SIZE);
+            bytes_left -= iobytes;
+        }
+    }
+    printf("finish generate checksum\n");
+
+    close(fd);
 }
 
 /*****************************************************************************
