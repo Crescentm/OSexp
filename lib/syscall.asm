@@ -10,11 +10,12 @@
 INT_VECTOR_SYS_CALL equ 0x90
 _NR_printx	    equ 0
 _NR_sendrec	    equ 1
+_NR_multp_on	    equ 2
 
 ; 导出符号
 global	printx
 global	sendrec
-
+global  multp_on
 bits 32
 [section .text]
 
@@ -53,3 +54,12 @@ printx:
 
 	ret
 
+; ====================================================================================
+;                          void multp_on();
+; ====================================================================================
+multp_on:
+	
+	mov eax, _NR_multp_on
+	int INT_VECTOR_SYS_CALL
+
+	ret

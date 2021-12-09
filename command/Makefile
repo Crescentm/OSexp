@@ -12,7 +12,7 @@ CFLAGS		= -I ../include/ -c -fno-builtin -fno-stack-protector -Wall
 LDFLAGS		= -Ttext 0x1000
 DASMFLAGS	= -D
 LIB		= ../lib/orangescrt.a
-BIN		= echo pwd
+BIN		= echo ls mult printA printB disproc pwd stest sum stuid
 
 # All Phony Targets
 .PHONY : everything final clean realclean disasm all install
@@ -48,8 +48,56 @@ echo.o: echo.c ../include/type.h ../include/stdio.h
 echo : echo.o start.o $(LIB)
 	$(LD) $(LDFLAGS) -o $@ $?
 
+ls.o: ls.c ../include/type.h ../include/stdio.h
+	$(CC) $(CFLAGS) -o $@ $<
+
+ls : ls.o start.o $(LIB)
+	$(LD) $(LDFLAGS) -o $@ $?
+mult.o: mult.c ../include/type.h ../include/stdio.h
+	$(CC) $(CFLAGS) -o $@ $<
+
+mult : mult.o start.o $(LIB)
+	$(LD) $(LDFLAGS) -o $@ $?
+printA.o: printA.c ../include/type.h ../include/stdio.h
+	$(CC) $(CFLAGS) -o $@ $<
+
+printA : printA.o start.o $(LIB)
+	$(LD) $(LDFLAGS) -o $@ $?
+printB.o: printB.c ../include/type.h ../include/stdio.h
+	$(CC) $(CFLAGS) -o $@ $<
+
+printB : printB.o start.o $(LIB)
+	$(LD) $(LDFLAGS) -o $@ $?
+
+
+disproc.o: disproc.c ../include/type.h ../include/stdio.h
+	$(CC) $(CFLAGS) -o $@ $<
+
+disproc : disproc.o start.o $(LIB)
+	$(LD) $(LDFLAGS) -o $@ $?
+
 pwd.o: pwd.c ../include/type.h ../include/stdio.h
 	$(CC) $(CFLAGS) -o $@ $<
 
 pwd : pwd.o start.o $(LIB)
 	$(LD) $(LDFLAGS) -o $@ $?
+
+stest.o: stest.c ../include/type.h ../include/stdio.h
+	$(CC) $(CFLAGS) -o $@ $<
+
+stest : stest.o start.o $(LIB)
+	$(LD) $(LDFLAGS) -o $@ $?
+
+sum.o: sum.c ../include/type.h ../include/stdio.h
+	$(CC) $(CFLAGS) -o $@ $<
+
+sum : sum.o start.o $(LIB)
+	$(LD) $(LDFLAGS) -o $@ $?
+
+stuid.o: stuid.c ../include/type.h ../include/stdio.h
+	$(CC) $(CFLAGS) -o $@ $<
+
+stuid : stuid.o start.o $(LIB)
+	$(LD) $(LDFLAGS) -o $@ $?
+
+

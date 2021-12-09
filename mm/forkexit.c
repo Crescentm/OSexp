@@ -131,6 +131,10 @@ PUBLIC int do_fork()
 	m.type = SYSCALL_RET;
 	m.RETVAL = 0;
 	m.PID = 0;
+	if(mulp) {
+		p->p_parent = INIT;
+		mulp = 0;
+	}
 	send_recv(SEND, child_pid, &m);
 
 	return 0;

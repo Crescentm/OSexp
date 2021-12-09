@@ -20,6 +20,7 @@ EXTERN	struct descriptor	gdt[GDT_SIZE];
 EXTERN	u8			idt_ptr[6];	/* 0~15:Limit  16~47:Base */
 EXTERN	struct gate		idt[IDT_SIZE];
 
+EXTERN  int	mulp;
 EXTERN	u32	k_reenter;
 EXTERN	int	current_console;
 

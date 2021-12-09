@@ -141,6 +141,7 @@ PUBLIC void spin(char * func_name);
 /* proc.c */
 PUBLIC	int	sys_sendrec(int function, int src_dest, MESSAGE* m, struct proc* p);
 PUBLIC	int	sys_printx(int _unused1, int _unused2, char* s, struct proc * p_proc);
+PUBLIC	void	sys_multp_on();
 
 /* syscall.asm */
 PUBLIC  void    sys_call();             /* int_handler */
@@ -148,3 +149,4 @@ PUBLIC  void    sys_call();             /* int_handler */
 /* 系统调用 - 用户级 */
 PUBLIC	int	sendrec(int function, int src_dest, MESSAGE* p_msg);
 PUBLIC	int	printx(char* str);
+PUBLIC	void	multp_on();

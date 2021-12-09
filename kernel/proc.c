@@ -180,6 +180,12 @@ PUBLIC int sys_sendrec(int function, int src_dest, MESSAGE *m, struct proc *p) {
     return 0;
 }
 
+void sys_multp_on()
+{
+    mulp = 1;
+    return;
+}
+
 /*****************************************************************************
  *				  ldt_seg_linear
  *****************************************************************************/

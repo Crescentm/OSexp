@@ -251,71 +251,98 @@ void untar(const char *filename) {
  *
  * @param tty_name  TTY file name.
  *****************************************************************************/
-void shabby_shell(const char *tty_name) {
-    int fd_stdin = open(tty_name, O_RDWR);
-    assert(fd_stdin == 0);
-    int fd_stdout = open(tty_name, O_RDWR);
-    assert(fd_stdout == 1);
 
-    char rdbuf[128];
+void shabby_shell(const char * tty_name)
+{
+	int fd_stdin  = open(tty_name, O_RDWR);
+	assert(fd_stdin  == 0);
+	int fd_stdout = open(tty_name, O_RDWR);
+	assert(fd_stdout == 1);
 
-    while (1) {
-        write(1, "$ ", 2);
-        int r = read(0, rdbuf, 70);
-        rdbuf[r] = 0;
+	char rdbuf[128];
 
-        int argc = 0;
-        char *argv[PROC_ORIGIN_STACK];
-        char *p = rdbuf;
-        char *s;
-        int word = 0;
-        char ch;
-        do {
-            ch = *p;
-            if (*p != ' ' && *p != 0 && !word) {
-                s = p;
-                word = 1;
-            }
-            if ((*p == ' ' || *p == 0) && word) {
-                word = 0;
-                argv[argc++] = s;
-                *p = 0;
-            }
-            p++;
-        } while (ch);
-        argv[argc] = 0;
+	while (1) {
+		write(1, "$ ", 2);
+		int r = read(0, rdbuf, 70);
+		rdbuf[r] = 0;
 
-        int fd = open(argv[0], O_RDWR);
-        if (fd == -1) {
-            if (rdbuf[0]) {
-                write(1, "{", 1);
-                write(1, rdbuf, r);
-                write(1, "}\n", 2);
-            }
-        } else {
-            close(fd);
-            int pid = fork();
-            if (pid != 0) { /* parent */
-                int s;
-                wait(&s);
-            } else { /* child */
-                int position = find_position(check_table, argv[0]);
-                int real_checkSum = check_table[position].checkSum;
-                int now_checkSum = check(argv[0], position, check_table[position].byteCount);
+		int argc = 0;
+		char * mulargv[10][PROC_ORIGIN_STACK];
+		int multiflag=0;
+		int h_flag = 1; //ÊÇ·ñÔÊÐíŒÌÐøÊäÖžÁî
+		char * argv[PROC_ORIGIN_STACK];
+		char * p = rdbuf;
+		char * s;
+		int word = 0;
+		char ch;
+		do {
+			ch = *p;
+			if (*p != ' ' && *p != 0 && !word) {
+				s = p;
+				word = 1;
+			}
+			if ((*p == ' ' || *p == 0) && word) {
+				word = 0;
+				argv[argc++] = s;
+				*p = 0;
+			}
+			p++;
+		} while(ch);
+		argv[argc] = 0;
 
-                if (real_checkSum == now_checkSum) {
-                    execv(argv[0], argv);
-                } else {
-                    printf("File has been changed!\n");
-                }
-            }
-        }
-    }
+		int i,j=0;
+        	int count = 0;  // count 总的指令个
+        	for (i = 0; i < argc; i++) {
+        		//printf("%d: %s\n", i, argv[i]);
+		
+            		if (argv[i][0] == '&'&&argv[i][1] == 0) {
+				mulargv[count][j]=0;
+				j=0;
+				multiflag = 1;
+                		//count += 1;
+				break;
+            		}else{
+				mulargv[count][j]=argv[i];
+				j++;
+	    		}
+        	}
+		count++;
+		
+		for(j=0;j<count;j++)
+		{
+			printf("beginpid:%d\n",j);
+			int fd = open(mulargv[j][0], O_RDWR);
+			if (fd == -1) {
+                    		if (rdbuf[0]) {
+                        	write(1, "{", 1);
+                        	write(1, rdbuf, r);
+                        	write(1, "}\n", 2);
+                    		}
+			}else{
+				close(fd);
+				if(multiflag)
+					multp_on();					
+				int pid = fork();
+				if (pid != 0) { /* parent */
+                        		if(!multiflag) { 
+						int s;
+						wait(&s);
+					}
+                        
+                    		}else{
+					printf("pid:%d\n",j);
+					execv(mulargv[j][0], mulargv[j]);
+				}
+			}
 
-    close(1);
-    close(0);
+		}
+	
+		
+	}
+
+	close(1);
+	close(0);
 }
-
 /*****************************************************************************
  *                                Init
  *****************************************************************************/

@@ -195,7 +195,9 @@ enum msgtype {
 	DEV_CLOSE,
 	DEV_READ,
 	DEV_WRITE,
-	DEV_IOCTL
+	DEV_IOCTL,
+	GET_PROC,
+	GET_QUEUE
 };
 
 /* macros for messages */
