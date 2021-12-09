@@ -57,6 +57,11 @@ PUBLIC void task_sys()
 				  sizeof(t));
 			send_recv(SEND, src, &msg);
 			break;
+		case GET_PROC:
+			msg.type = SYSCALL_RET;
+			//
+			send_recv(SEND, src, &msg);
+			break;
 		default:
 			panic("unknown msg type");
 			break;

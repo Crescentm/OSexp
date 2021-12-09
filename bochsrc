@@ -6,8 +6,8 @@
 megs: 32
 
 # filename of ROM images
-romimage: file=$BXSHARE/BIOS-bochs-latest
-vgaromimage: file=$BXSHARE/VGABIOS-lgpl-latest
+romimage: file=/home/wanna/orange/bochs-2.6.9/bios/BIOS-bochs-latest
+vgaromimage: file=/home/wanna/orange/bochs-2.6.9/bios/VGABIOS-lgpl-latest
 
 # what disk images will be used
 floppya: 1_44=a.img, status=inserted
@@ -31,5 +31,4 @@ boot: a
 mouse: enabled=0
 
 # enable key mapping, using US layout as default.
-magic_break: enabled=1
-keyboard:  keymap=$BXSHARE/keymaps/x11-pc-us.map
+keyboard: keymap=/home/wanna/orange/bochs-2.6.9/gui/keymaps/sdl-pc-us.map
