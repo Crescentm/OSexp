@@ -226,12 +226,6 @@ void untar(const char *filename) {
     }
     printf(" done, %d files extracted]\n", i);
 
-    // if (i) {
-    //     lseek(fd, 0, SEEK_SET);
-    //     buf[0] = 0;
-    //     bytes = write(fd, buf, 1);
-    //     assert(bytes == 1);
-    // }
 
     // 校验过程
     printf("start generate checksum\n");

@@ -12,9 +12,11 @@
 #include "config.h"
 #include "check.h"
 #include <stdio.h>
+#define CRC_LOC 0x80
 
 PUBLIC int check(char *filename, int pos, int byteCount) {
     int hFile;
+    unsigned char buf[50000];
 
     hFile = open(filename, O_RDWR);
     if (hFile < 0) {
@@ -27,14 +29,24 @@ PUBLIC int check(char *filename, int pos, int byteCount) {
         printf("fail to check\n");
         return hFile;
     }
-
-    char buf[1];
+    read(hFile,buf,byteCount);
     unsigned int checksum=0;
 
-    for (int i = 0; i < 100; i++) {
-        read(hFile, buf, 1);
-
-        checksum = checksum ^ (unsigned int)buf[0];
+    char *data = (char *)buf;
+    for (int i = 0; i < byteCount; i++) {
+        if (i == CRC_LOC) {
+            data++;
+            continue;
+        }
+        checksum ^= *data++;
+        for (int j = 0; j < 8; j++) {
+            if (checksum & 1) {
+                checksum = (checksum>>1)^0x8c;
+            }else {
+                checksum >>= 1;
+            }
+        }
+        
     }
     printf("checksum = %d\n",checksum);
     close(hFile);
